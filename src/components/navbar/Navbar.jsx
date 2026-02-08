@@ -1,9 +1,40 @@
 import React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import MenuIcon from '@mui/icons-material/Menu';
+import Link from '@mui/material/Link';
+import { Link as RouterLink } from 'react-router-dom';
+import IconButton from '@mui/material/IconButton';
 
 export default function Navbar() {
     return (
-        <div>
-            Navbar
-        </div>
-    )
+        <Box sx={{ flexGrow: 1 }}>
+            <AppBar position="static">
+                <Toolbar>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                        KASHOP
+                    </Typography>
+                    <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 2, alignItems: 'center' }}>
+                        <Link component={RouterLink} to={'/'} color="inherit" underline="none">
+                            Home
+                        </Link>
+                        <Link component={RouterLink} to={'/cart'} color="inherit" underline="none">
+                            Cart
+                        </Link>
+                        <Link component={RouterLink} to={'/login'} color="inherit" underline="none">
+                            Login
+                        </Link>
+                        <Link component={RouterLink} to={'/register'} color="inherit" underline="none">
+                            Register
+                        </Link>
+                    </Box>
+                    <IconButton color='inherit' sx={{ display: { xs: 'flex', sm: 'none' } }}>
+                        <MenuIcon />
+                    </IconButton>
+                </Toolbar >
+            </AppBar >
+        </Box >
+    );
 }
